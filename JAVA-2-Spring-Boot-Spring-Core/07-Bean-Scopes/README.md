@@ -53,3 +53,9 @@ to DemoController which is back to Web Browser.
 
 ### SpringcoredemoApplication
 - This will only scan all the configurations and other things needed in main/java/com.kweis.springdemo
+- Find this in 02-Component-Scanning file 
+- This shows how it can find other components from other folders outside of the springcoredemo package. This can be found in file SpringcoredemoApplication.java
+
+### Lazy Initialization
+- in application.properties: spring.main.lazy-initialization=true
+- this sets all the beans to be lazy
