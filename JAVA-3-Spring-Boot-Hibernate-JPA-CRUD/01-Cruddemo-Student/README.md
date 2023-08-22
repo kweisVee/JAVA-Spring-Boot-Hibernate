@@ -1,0 +1,64 @@
+https://start.spring.io/
+
+For setting up your MAVEN in the code
+
+### POM file
+- where you can find all the dependencies and information needed for your code
+
+### Build Project Automatically
+- Preferences > Build, Execution, Deployment > Compiler
+- Check the box: **Build project automatically**
+- Preferences > Advanced Settings 
+- Check the box: **Allow auto-make to start**
+- Add the codeblock in dependencies: 
+    ```
+  <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+    <dependency>
+  ```
+- then be sure to reload maven changes
+
+### Spring Boot Actuator 
+- Automatically exposes endpoints for metrics out-of-the-box 
+- Allows you to see the health of your application
+- You can only access `\health` on the url but if you want to include info: 
+`management.endpoints.web.exposure.include=health,info` and by also setting the `env.enabled` to true.
+- To add info you can update `application.properties`
+- Add the codeblock in dependencies:
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+<dependency>
+```
+- For adding security to the actuator you will add another dependency:
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+<dependency>
+```
+-This doesn't work on your end though since it has an error - we will be writing about this in the vlog
+
+### Creating a REST Controller 
+- use `@RestController`
+- Web Browser calls dailyWorkout which calls DemoController
+which calls the `getDailyWorkout()` of Coach then this gives back
+to DemoController which is back to Web Browser.
+
+### Controllers and Labels
+- use `@Component` for Cricket Coach as it implements Coach
+- use `@Autowired` tells Spring to inject a dependency
+
+### SpringcoredemoApplication
+- This will only scan all the configurations and other things needed in main/java/com.kweis.springdemo
+- Find this in 02-Component-Scanning file 
+- This shows how it can find other components from other folders outside of the springcoredemo package. This can be found in file SpringcoredemoApplication.java
+
+### Lazy Initialization
+- in application.properties: spring.main.lazy-initialization=true
+- this sets all the beans to be lazy
+
+### Database Set Up
+- the data source, username, and password will all be placed in applications.properties
