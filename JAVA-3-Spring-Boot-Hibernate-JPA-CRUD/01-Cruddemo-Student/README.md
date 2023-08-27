@@ -62,3 +62,12 @@ to DemoController which is back to Web Browser.
 
 ### Database Set Up
 - the data source, username, and password will all be placed in applications.properties
+
+### Changing the AUTOINCREMENT in the Database and make it start in a different value not just 1
+- ALTER TABLE student_tracker.student AUTO_INCREMENT=5000
+
+### SQL configs in application.properties
+- `logging.level.org.hibernate.SQL=debug` is to log SQL statements
+- `logging.level.org.hibernate.orm.jdbc.bind=trace` is to log the values for SQL statements
+- `spring.jpa.hibernate.ddl-auto=create` creates a table for the schemas, but also drops it everytime the program is ran
+- `spring.jpa.hibernate.ddl-auto=update` creates a table once and keeps the existing data
